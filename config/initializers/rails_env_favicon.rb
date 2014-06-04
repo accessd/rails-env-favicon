@@ -1,4 +1,4 @@
-require 'rails_env_favicon'
+require 'rails-env-favicon'
 
 RailsEnvFavicon.setup do |config|
   config.text_color = '#ffffff'

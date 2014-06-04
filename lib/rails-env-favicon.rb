@@ -1,5 +1,5 @@
-require "rails_env_favicon/version"
-require "rails_env_favicon/rails"
+require "rails-env-favicon/version"
+require "rails-env-favicon/rails"
 
 module RailsEnvFavicon
   mattr_accessor :text_color
