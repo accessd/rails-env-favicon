@@ -18,7 +18,7 @@ Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'rails_env_favicon', github: 'accessd/rails_env_favicon'
+    gem 'rails-env-favicon', github: 'accessd/rails-env-favicon'
 
 And then execute:
 
