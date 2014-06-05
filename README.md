@@ -1,6 +1,8 @@
 Rails Env Favicon
 ================================
 
+[![Gem Version](https://badge.fury.io/rb/rails-env-favicon.svg)](http://badge.fury.io/rb/rails-env-favicon)
+
 Made changes in the code to debug and do not understand what's wrong. 
 Hell, I'm on the debug production! This happened to you? To me several times.
 Library offers one of the ways to solve this problem.
