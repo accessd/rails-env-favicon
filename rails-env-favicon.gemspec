@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["accessd0@gmail.com"]
   spec.summary       = %q{Gem to display the rails environment(except production) on the favicon}
   spec.description   = %q{Gem use Tinycon to manipulate with favicon}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/accessd/rails-env-favicon"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
