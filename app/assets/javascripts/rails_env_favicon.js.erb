@@ -1,4 +1,5 @@
 <% unless Rails.env.production? %>
+    <%= require_asset "tinycon.min.js" %>
     Tinycon.setOptions({
         width: 8,
         height: 9,

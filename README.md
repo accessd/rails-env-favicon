@@ -33,7 +33,6 @@ Setup:
 
 In your JavaScript manifest (e.g. `application.js`):
 
-    //= require tinycon.min
     //= require rails_env_favicon
 
 Config
