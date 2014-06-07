@@ -44,6 +44,13 @@ In config/initializers/rails_env_favicon.rb
       config.text_color = '#ffffff'
       config.background_color = '#549a2f'
     end
+    
+    
+TODO
+----------
+
+* Possible use js here is not justified, so is the idea of create a middleware using [RMagick](https://github.com/rmagick/rmagick). Help is welcome! 
+
 
 Contributing
 -------------
