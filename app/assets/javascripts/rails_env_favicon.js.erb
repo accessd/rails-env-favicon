@@ -1,12 +1,17 @@
 <% unless Rails.env.production? %>
-    <%= require_asset "tinycon.min.js" %>
-    Tinycon.setOptions({
-        width: 8,
-        height: 9,
-        colour: '<%= RailsEnvFavicon.text_color %>',
-        background: '<%= RailsEnvFavicon.background_color %>',
-        fallback: true
-    });
+    <% if RailsEnvFavicon.make_grayscale %>
+        <%= require_asset "grayscale-favicon.js" %>
+        GrayscaleFavicon.grayscale();
+    <% else %>
+        <%= require_asset "tinycon.min.js" %>
+        Tinycon.setOptions({
+          width: 8,
+          height: 9,
+          colour: '<%= RailsEnvFavicon.text_color %>',
+          background: '<%= RailsEnvFavicon.background_color %>',
+          fallback: true
+        });
 
-    Tinycon.setBubble("<%= RailsEnvFavicon.env_letter %>");
+        Tinycon.setBubble("<%= RailsEnvFavicon.env_letter %>");
+    <% end %>
 <% end %>

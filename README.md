@@ -15,6 +15,12 @@ This means that on the first tab we have development environment, on second stag
 
 It uses [Tinycon](https://github.com/tommoor/tinycon) - A small library for manipulating the favicon.
 
+And one more option:
+
+![ScreenShot](https://raw.github.com/accessd/rails-env-favicon/master/doc/img/sample-grayscale.png)
+
+Icon will be gray on non production environment.
+
 Installation
 ------------
 
@@ -41,15 +47,12 @@ Config
 In config/initializers/rails_env_favicon.rb
 
     RailsEnvFavicon.setup do |config|
+      # If true then favicon will be gray on non production env
+      config.make_grayscale = false
+      # or if make_grayscale = false then draw badge on favicon with this options:
       config.text_color = '#ffffff'
       config.background_color = '#549a2f'
     end
-    
-    
-TODO
-----------
-
-* Possible use js here is not justified, so is the idea of create a middleware using [RMagick](https://github.com/rmagick/rmagick). Help is welcome! 
 
 
 Contributing
