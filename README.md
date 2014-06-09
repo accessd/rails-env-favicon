@@ -13,7 +13,6 @@ Most everyone will understand from one picture:
 
 This means that on the first tab we have development environment, on second stage, and third it's production(we don't need change this favicon).
 
-It uses [Tinycon](https://github.com/tommoor/tinycon) - A small library for manipulating the favicon.
 
 Installation
 ------------
@@ -31,9 +30,6 @@ Setup:
     # adds initializer
     rails g rails_env_favicon:install
 
-In your JavaScript manifest (e.g. `application.js`):
-
-    //= require rails_env_favicon
 
 Config
 ------------
