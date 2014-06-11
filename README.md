@@ -54,6 +54,18 @@ In config/initializers/rails_env_favicon.rb
       config.background_color = '#549a2f'
     end
 
+You can also configure the condition of changing favicon and badge label, just override `RailsEnvFavicon` module methods. For example:
+
+    module RailsEnvFavicon
+      def self.badge_label
+        ENV['TEATRO'].present? ? 'T' : ::Rails.env.first.upcase
+      end
+
+      def self.applicable?
+        !::Rails.env.production? || ENV['TEATRO'].present?
+      end
+    end
+
 
 Contributing
 -------------

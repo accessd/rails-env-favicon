@@ -10,8 +10,12 @@ module RailsEnvFavicon
   mattr_accessor :make_grayscale
   self.make_grayscale = false
 
-  def self.env_letter
+  def self.badge_label
     ::Rails.env.first.upcase
+  end
+
+  def self.applicable?
+    !::Rails.env.production?
   end
 
   class << self

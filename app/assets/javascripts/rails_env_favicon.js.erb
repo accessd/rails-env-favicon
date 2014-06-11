@@ -1,4 +1,4 @@
-<% unless Rails.env.production? %>
+<% if RailsEnvFavicon.applicable?  %>
     <% if RailsEnvFavicon.make_grayscale %>
         <%= require_asset "grayscale-favicon.js" %>
         GrayscaleFavicon.grayscale();
@@ -12,6 +12,6 @@
           fallback: true
         });
 
-        Tinycon.setBubble("<%= RailsEnvFavicon.env_letter %>");
+        Tinycon.setBubble("<%= RailsEnvFavicon.badge_label %>");
     <% end %>
 <% end %>
