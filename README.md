@@ -66,6 +66,13 @@ You can also configure the condition of changing favicon and badge label, just o
       end
     end
 
+Issues
+-------------
+
+  * If you change a configuration to apply changes, you have to:
+
+    * Execute `rm -rf tmp/cache/*` in app directory, for assets cache cleaning.
+    * Restart web server.
 
 Contributing
 -------------
