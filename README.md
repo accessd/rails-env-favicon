@@ -1,4 +1,4 @@
-Rails Env Favicon
+Rails Env Favicon (RMagick version)
 ================================
 
 [![Gem Version](https://badge.fury.io/rb/rails-env-favicon.svg)](http://badge.fury.io/rb/rails-env-favicon)
@@ -9,17 +9,18 @@ Library offers one of the ways to solve this problem.
 
 Most everyone will understand from one picture:
 
-![ScreenShot](https://raw.github.com/accessd/rails-env-favicon/master/doc/img/sample.png)
+![ScreenShot](https://raw.github.com/accessd/rails-env-favicon/master/doc/img/sample-grayscale.png)
 
-This means that on the first tab we have development environment, on second stage, and third it's production(we don't need change this favicon).
+Icon will be gray on non production environment.
 
+It depends on https://github.com/rmagick/rmagick
 
 Installation
 ------------
 
 Add this line to your application's Gemfile:
 
-    gem 'rails-env-favicon'
+    gem 'rails-env-favicon', github: 'accessd/rails-env-favicon', branch: 'rmagick'
 
 And then execute:
 
@@ -34,25 +35,15 @@ Setup:
 Config
 ------------
 
-In config/initializers/rails_env_favicon.rb
+You can configure the condition of changing favicon, just override RailsEnvFavicon module method. For example:
 
-    RailsEnvFavicon.setup do |config|
-      config.text_color = '#ffffff'
-      config.background_color = '#549a2f'
+    RailsEnvFavicon
+      def self.applicable?
+        !::Rails.env.production? || ENV['TEATRO'].present?
+      end
     end
-    
-    
-TODO
-----------
 
-* Possible use js here is not justified, so is the idea of create a middleware using [RMagick](https://github.com/rmagick/rmagick). Help is welcome! 
+Issues
+-----------
 
-
-Contributing
--------------
-
-1. Fork it ( http://github.com/[my-github-username]/rails_env_favicon/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+* You may face a problem caching favicon by browser, in this case, I recommend search solution for a specific browser (In Chrome on Mac OS X you may to try to remove file with favicon cache `~/Library/Application Support/Google/Chrome/Default/Favicons` and restart browser).

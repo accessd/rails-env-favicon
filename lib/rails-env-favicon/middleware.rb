@@ -11,7 +11,7 @@ module RailsEnvFavicon
         return @app.call(env)
       end
 
-      env.delete('HTTP_IF_MODIFIED_SINCE') # do not cache the icon file
+      env.delete('HTTP_IF_MODIFIED_SINCE')
 
       status, headers, response = @app.call(env)
 
@@ -20,17 +20,28 @@ module RailsEnvFavicon
         data << buf
       end
 
-      img = Magick::Image.from_blob(data) do |info|
-        info.format = 'ICO'#headers['Content-Type'] =~ /png/ ? 'PNG' : 'ICO'
-      end[0]
-      img = img.quantize(256, Magick::GRAYColorspace)
+      if data.present? && data != 'Not Found'
+        img = Magick::Image.from_blob(data) do |info|
+          info.format = headers['Content-Type'] =~ /png/ ? 'PNG' : 'ICO'
+        end
 
-      # trying not to cache (not worked)
-      headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
-      headers["Pragma"] = "no-cache"
-      headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
-      headers["Last-Modified"] = "Fri, 01 Jan 1990 00:00:00 GMT"
-      [status, headers, [img.to_blob]]
+        img = img[img.size - 1] # get last from multi-size ico
+        img = img.quantize(256, Magick::GRAYColorspace)
+
+        # do not to cache the icon
+        headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+        headers["Pragma"] = "no-cache"
+        headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+        headers["Last-Modified"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+
+        img_blob = img.to_blob
+
+        # without corrent Content-Length not working in Chrome
+        headers["Content-Length"] = img_blob.size.to_s
+        [status, headers, [img_blob]]
+      else
+        [status, headers, response]
+      end
     end
   end
 end
