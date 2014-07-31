@@ -21,6 +21,8 @@ And one more option:
 
 Icon will be gray on non production environment.
 
+__Js usage for this task justified by the fact that more often than not have to worry about favicon caching, because favicon changes on the fly after it's loaded. However, if you do not like to use js for this problem, you may use alternative version of gem which uses https://github.com/rmagick/rmagick, follow to branch [rmagick](https://github.com/accessd/rails-env-favicon/tree/rmagick)__
+
 Installation
 ------------
 
