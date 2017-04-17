@@ -3,7 +3,7 @@ Rails Env Favicon
 
 [![Gem Version](https://badge.fury.io/rb/rails-env-favicon.svg)](http://badge.fury.io/rb/rails-env-favicon)
 
-Made changes in the code to debug and do not understand what's wrong. 
+Made changes in the code to debug and do not understand what's wrong.
 Hell, I'm on the debug production! This happened to you? To me several times.
 Library offers one of the ways to solve this problem.
 
@@ -20,6 +20,8 @@ And one more option:
 ![ScreenShot](https://raw.github.com/accessd/rails-env-favicon/master/doc/img/sample-grayscale.png)
 
 Icon will be gray on non production environment.
+
+It you need this separately you can use [Grayscale-Favicon](https://github.com/khusnetdinov/grayscale-favicon) - adopted for node package managers version.
 
 __Js usage for this task justified by the fact that more often than not have to worry about favicon caching, because favicon changes on the fly after it's loaded. However, if you do not like to use js for this problem, you may use alternative version of gem which uses https://github.com/rmagick/rmagick, follow to branch [rmagick](https://github.com/accessd/rails-env-favicon/tree/rmagick)__
 
